@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزرو قهوه</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: right;
+            font-family: "Vazir", sans-serif;
+            margin: 0; /* حذف فاصله‌های پیش‌فرض */
+            height: 100vh; /* ارتفاع کل صفحه */
+            background-image: url('https://img.freepik.com/premium-vector/coffee-shop-seamless-pattern_179407-5.jpg?semt=ais_hybrid');
+            background-size: cover; /* تصویر به طور کامل صفحه را پر می‌کند */
+            background-position: center; /* تصویر در مرکز صفحه قرار می‌گیرد */
+            background-repeat: no-repeat; /* از تکرار تصویر جلوگیری می‌کند */
+            background-attachment: fixed; /* تصویر ثابت باقی می‌ماند */
+        }
+        .navbar {
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            padding: 10px 0;
+            justify-content: right;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        @media (max-width:700px){
+            .navbar a{
+                font-size: 8px;
+            }
+        }
+
+        .navbar a:hover {
+            background-color: #3c1e04;
+            color: white;
+        }
+        .container-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+            opacity: 93%;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 10px;
+        }
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        input, select {
+            font-size: 16px;
+            padding: 8px;
+        }
+        .table{
+            max-width: 1100px;
+            margin: auto;
+            margin-bottom: 50px;
+            opacity: 93%;
+        }
+        
+        /* نمایش پیام تأیید */
+        #successMessage {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        #successMessage:target {
+            display: block;
+            opacity: 1;
+            animation: fadeOut 3s forwards;
+        }
+
+        /* انیمیشن محو شدن */
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+<body class="mt-5">
+    <div class="navbar">
+        <a href="goody.html">صفحه اصلی</a>
+        <a href="#">سفارش</a>
+        <a href="#">تماس با ما</a>
+        <a href="#">درباره ما</a>
+        <a href="#">پروفایل کاربر</a>
+        <a href="#">ثبت نام / ورود</a>
+    </div>
+
+    <h2 class="text-center mb-4" style="margin-top: 80px; color: whitesmoke;">رزرو قهوه</h2>
+
+    <div class="container-box">
+        <!-- فرم رزرو -->
+        <div class="form-container">
+            <h4 class="text-center mb-3">فرم رزرو</h4>
+
+            <form id="coffeeForm" action="#successMessage">
+                <div class="mb-3">
+                    <label for="date" class="form-label">تاریخ رزرو:</label>
+                    <input type="date" id="date" class="form-control" required min="2025-03-04">
+                </div>
+
+                <div class="mb-3">
+                    <label for="time" class="form-label">ساعت تحویل:</label>
+                    <select id="time" class="form-select">
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">میزان کافئین:</label>
+                    <input type="range" class="form-range" min="0" max="100" step="5" value="50">
+                </div>
+
+                <div class="mb-3">
+                    <label for="sugar" class="form-label">میزان شکر:</label>
+                    <input type="range" class="form-range" min="0" max="100" step="5" value="50">
+                </div>
+
+                <div class="mb-3">
+                    <label for="milk" class="form-label">میزان شیر:</label>
+                    <input type="range" class="form-range" min="0" max="100" step="5" value="50">
+                </div>
+
+                <div class="mb-3">
+                    <label for="size" class="form-label">اندازه لیوان:</label>
+                    <select id="size" class="form-select">
+                        <option>کوچک</option>
+                        <option>متوسط</option>
+                        <option>بزرگ</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">تایید سفارش</button>
+                </div>
+            </form>
+        </div>
+        <!-- تصویر -->
+        <div class="image-container">
+            <img src="https://i.ibb.co/zhjRP1vy/pexels-photo-302896.jpg" alt="Coffee">
+        </div>
+    </div>
+
+    
+    <!-- پیام تأیید سفارش (بالای لیست قهوه‌ها) -->
+    <div id="successMessage" class="alert alert-success text-center" style="margin-top: 30px; margin-bottom: 20px; margin-left: 210px; margin-right: 210px;">
+      سفارش شما با موفقیت ثبت شد!
+  </div>
+
+    <!-- جدول لیست قهوه‌ها -->
+    <h3 class="text-center" style="margin-top: 30px; margin-bottom: 20px; color: whitesmoke">لیست قهوه‌های موجود</h3>
+
+
+    <table class="table table-bordered table-striped text-end">
+        <thead class="table-dark">
+            <tr>
+                <th>نام قهوه</th>
+                <th>توضیحات</th>
+                <th>(تومان) قیمت</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>اسپرسو</td>
+                <td>ساده</td>
+                <td>50,000</td>
+            </tr>
+            <tr>
+                <td>کاپوچینو</td>
+                <td>اسپرسو با فوم شیر</td>
+                <td>75,000</td>
+            </tr>
+            <tr>
+                <td>لاته فندق</td>
+                <td>ترکیبی از اسپرسو، فوم شیر و طعم دهنده فندق</td>
+                <td>85,000</td>
+            </tr>
+            <tr>
+                <td>آمریکانو</td>
+                <td>اسپرسو رقیق شده با آب</td>
+                <td>55,000</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
