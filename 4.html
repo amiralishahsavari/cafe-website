@@ -28,7 +28,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 400px;
-            text-align: right;
+            text-align: center;
         }
 
         .form-container h2 {
@@ -70,19 +70,19 @@
 <body>
 
     <div class="form-container">
-        <h2 style="text-align: center;">ویرایش اطلاعات کاربر</h2>
+        <h2>ویرایش اطلاعات کاربر</h2>
         <!-- تغییر action به # -->
         <form action="#" method="post">
-            <label for="name">نام و نام خانوادگی:</label>
+            <label for="name" style="text-align: right;">نام و نام خانوادگی:</label>
             <input type="text" id="name" name="name" value="" placeholder="نام و نام خانوادگی">
 
-            <label for="email">آدرس ایمیل:</label>
+            <label for="email" style="text-align: right;">آدرس ایمیل:</label>
             <input type="email" id="email" name="email" value="" placeholder="آدرس ایمیل">
 
-            <label for="phone">شماره تماس:</label>
+            <label for="phone" style="text-align: right;">شماره تماس:</label>
             <input type="text" id="phone" name="phone" value="" placeholder="شماره تماس">
 
-            <label for="address">آدرس:</label>
+            <label for="address" style="text-align: right;">آدرس:</label>
             <input type="text" id="address" name="address" value="" placeholder="آدرس">
 
             <button type="submit">ثبت تغییرات</button>
