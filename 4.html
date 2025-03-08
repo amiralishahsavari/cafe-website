@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویرایش اطلاعات</title>
+    <style>
+        body {
+            background-image: url('https://i.ibb.co/ZRdDgW3v/pexels-photo-1695052.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow-y: auto;
+            direction: rtl;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: right;
+        }
+
+        .form-container h2 {
+            font-family: Titr;
+            margin-bottom: 20px;
+            color: #464707;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #464707;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-container button:hover {
+            background-color: #464707;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2 style="text-align: center;">ویرایش اطلاعات کاربر</h2>
+        <!-- تغییر action به # -->
+        <form action="#" method="post">
+            <label for="name">نام و نام خانوادگی:</label>
+            <input type="text" id="name" name="name" value="" placeholder="نام و نام خانوادگی">
+
+            <label for="email">آدرس ایمیل:</label>
+            <input type="email" id="email" name="email" value="" placeholder="آدرس ایمیل">
+
+            <label for="phone">شماره تماس:</label>
+            <input type="text" id="phone" name="phone" value="" placeholder="شماره تماس">
+
+            <label for="address">آدرس:</label>
+            <input type="text" id="address" name="address" value="" placeholder="آدرس">
+
+            <button type="submit">ثبت تغییرات</button>
+        </form>
+    </div>
+
+</body>
+</html>

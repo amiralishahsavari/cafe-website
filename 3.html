@@ -163,31 +163,54 @@
 
     /* استایل جدول سفارشات */
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
 
-    table,
-    th,
-    td {
-      border: 1px solid #ddd;
-      /* مرزهای جدول */
-    }
+      table, th, td {
+        border: 1px solid #ddd; /* مرزهای جدول */
+      }
 
-    th,
-    td {
-      padding: 12px;
-      text-align: right;
-      /* راست‌چین بودن متن در جدول */
-    }
+      th, td {
+        padding: 12px;
+        text-align: right; /* راست‌چین بودن متن در جدول */
+      }
 
-    th {
-      background-color: #46470783;
-      /* رنگ پس‌زمینه سربرگ جدول */
-      color: white;
-      /* رنگ متن سربرگ */
-    }
+      th {
+        background-color: #46470783; /* رنگ پس‌زمینه سربرگ جدول */
+        color: white; /* رنگ متن سربرگ */
+      }
+
+      /* ریسپانسیو برای صفحه‌های کوچک‌تر */
+      @media (max-width: 768px) {
+        table {
+          width: 100%; /* عرض جدول را 100% تنظیم می‌کنیم */
+          font-size: 12px; /* اندازه فونت را کاهش می‌دهیم */
+        }
+
+        th, td {
+          padding: 8px; /* فاصله درون سلول‌ها را کاهش می‌دهیم */
+        }
+
+        /* در صفحه‌های بسیار کوچک‌تر، مقیاس جدول کاهش پیدا می‌کند */
+        table {
+          transform: scale(0.9); /* جدول را به اندازه 90% اندازه اصلی کوچک می‌کند */
+          transform-origin: top center; /* موقعیت تغییر مقیاس در بالا و مرکز باشد */
+        }
+      }
+
+      @media (max-width: 480px) {
+        table {
+          transform: scale(0.8); /* در صفحه‌های بسیار کوچک‌تر، جدول را به اندازه 80% اندازه اصلی کوچک می‌کنیم */
+        }
+
+        th, td {
+          font-size: 10px; /* اندازه فونت را بیشتر کاهش می‌دهیم */
+          padding: 6px; /* فاصله سلول‌ها را کمتر می‌کنیم */
+        }
+      }
+
 
     /* استایل وضعیت سفارشات */
     .status {
@@ -264,10 +287,15 @@
         /* کاهش عرض کارت در نمایشگرهای کوچک */
       }
 
-      .orders {
-        width: 90%;
-        /* کاهش عرض بخش سفارشات */
+      /* استایل برای جداول ریسپانسیو */
+      .orders table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        overflow-x: auto;  /* اضافه کردن پیمایش افقی */
+        display: block;    /* نمایش به صورت بلاک برای فعال‌سازی پیمایش */
       }
+
     }
 
     /* استایل هشدارها */
@@ -350,7 +378,7 @@
           <li class="nav-item">
             <a class="nav-link" href="3.html">پروفایل کاربر</a>
           </li>
-        </ul>
+        </ul> 
       </div>
     </div>
   </nav>
@@ -367,7 +395,7 @@
       <p style="text-align: right;"> تاریخ عضویت: <span style="color: black;">7 شهریور 1400</span></p>
       <p style="text-align: right;"> شماره عضویت: <span style="color: black;">352</span></p>
       <p style="text-align: right;">امتیاز : <span style="color: black;">2500</span></p>
-      <a href="#" class="edit-button">ویرایش اطلاعات</a>
+      <a href="4.html" class="edit-button">ویرایش اطلاعات</a>
     </div>
 
   </div>
@@ -432,42 +460,44 @@
   </div>
 
   <!-- لیست سفارشات در انتظار دریافت -->
-  <div class="orders">
-    <h3 style="text-align: center; font-family: 'Titr'">سفارشات در انتظار دریافت</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>شماره سفارش</th>
-          <th>تاریخ</th>
-          <th>وضعیت</th>
-          <th>قیمت</th>
-          <th>توضیحات</th>
-          <th>وضعیت</th>
-          <th>عملیات</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>6</td>
-          <td>1403/12/15</td>
-          <td class="status" style="color: orange;">در انتظار دریافت</td>
-          <td class="price">30,000 تومان</td>
-          <td>چای نبات</td>
-          <td>در حال آماده‌سازی برای ارسال.</td>
-          <td><button class="cancel-button" onclick="cancelOrder(106)">لغو سفارش</button></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>1403/12/15</td>
-          <td class="status" style="color: orange;">در انتظار دریافت</td>
-          <td class="price">65,000 تومان</td>
-          <td>موکا</td>
-          <td>تحویل پیک</td>
-          <td><button class="cancel-button" onclick="cancelOrder(107)">لغو سفارش</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <!-- لیست سفارشات در انتظار دریافت -->
+    <div class="orders" style="overflow-x: auto;">
+      <h3 style="text-align: center; font-family: 'Titr'">سفارشات در انتظار دریافت</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>شماره سفارش</th>
+            <th>تاریخ</th>
+            <th>وضعیت</th>
+            <th>قیمت</th>
+            <th>توضیحات</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6</td>
+            <td>1403/12/15</td>
+            <td class="status" style="color: orange;">در انتظار دریافت</td>
+            <td class="price">30,000 تومان</td>
+            <td>چای نبات</td>
+            <td>در حال آماده‌سازی برای ارسال.</td>
+            <td><button class="cancel-button" onclick="cancelOrder(106)">لغو سفارش</button></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>1403/12/15</td>
+            <td class="status" style="color: orange;">در انتظار دریافت</td>
+            <td class="price">65,000 تومان</td>
+            <td>موکا</td>
+            <td>تحویل پیک</td>
+            <td><button class="cancel-button" onclick="cancelOrder(107)">لغو سفارش</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 
   <!-- اعلانات مهم -->
   <div class="alerts">
