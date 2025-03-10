@@ -20,7 +20,6 @@
 
         body {
             font-family: "Vazir", sans-serif;
-            /*font-family: Arial, Helvetica, sans-serif;*/
             direction: rtl;
             text-align: center;
             scroll-behavior: smooth;
@@ -251,6 +250,56 @@
             color: red;
             font-family: "Vazir";
         }
+        .container-comment {
+            background: #0aedde18;
+            color: #333;
+            padding: 20px;
+            margin-top: 50px;
+            margin: 50px auto;
+            /* فاصله از پایین */
+            max-width: 60%;
+            /* حداکثر عرض */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .comment-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            margin-bottom: 50px;
+        }
+        .comment-content {
+            flex: 1;
+            text-align: right;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment-form input[type="submit"] {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -404,6 +453,33 @@
             <label for="slide5"></label>
             <label for="slide6"></label>
         </div>
+    </div>
+
+    <div class="container-comment">
+        <h2>نظرات کاربران</h2>
+        
+        <div class="comment-box">
+            <img src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=600" alt="پروفایل کاربر ۱" class="profile-pic">
+            <div class="comment-content">
+                <p><strong>amirali</strong></p>
+                <p>فضای مناسب و آرامی داشت</p>
+            </div>
+        </div>
+        
+        <div class="comment-box">
+            <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=600" alt="پروفایل کاربر ۲" class="profile-pic">
+            <div class="comment-content">
+                <p><strong>حسین</strong></p>
+                <p>ارسال قهوه دیر انجام شد، راضی نبودم</p>
+            </div>
+        </div>
+        
+        <form class="comment-form">
+            <h3>ثبت نظر</h3>
+            <textarea placeholder="نظر خود را بنویسید..."></textarea>
+            <br>
+            <input type="submit" value="ارسال نظر">
+        </form>
     </div>
 
     <footer class="footer">
