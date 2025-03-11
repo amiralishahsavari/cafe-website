@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <!-- تنظیمات ّمتا تگ برای کاراکترهای UTF-8 و نمایش درست در دستگاه‌های مختلف -->
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+  <!-- افزودن فونت Vazir از Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پروفایل کاربر</title> <!-- عنوان صفحه -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* استایل‌های مربوط به بدنه صفحه */
+    body {
+      background-image: url("https://i.ibb.co/ZRdDgW3v/pexels-photo-1695052.jpg");
+      /* تصویر پس‌زمینه */
+      background-size: cover;
+      /* پس‌زمینه به صورت کامل پوشش دهد */
+      background-position: center;
+      /* پس‌زمینه در مرکز قرار بگیرد */
+      background-attachment: fixed;
+      /* پس‌زمینه ثابت باشد */
+      background-repeat: no-repeat;
+      /* تکرار نشود */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      /* حداقل ارتفاع صفحه برابر با ارتفاع نمای کامل */
+      margin: 0;
+      flex-direction: column;
+      /* چینش عمودی المان‌ها */
+      overflow-y: auto;
+      direction: rtl;
+      /* راست‌چین کردن محتوا */
+      font-family: 'vazir', sans-serif;
+    }
+
+    .navbar a:hover {
+      background-color: #3c1e04;
+      color: white;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1020;
+    }
+
+
+    /* استایل‌های مربوط به کارت پروفایل کاربر */
+    .card {
+      background-image: url('https://i.ibb.co/Nn6G4Rf8/pexels-photo-12420820.jpg');
+      /* تصویر پس‌زمینه کارت */
+      background-size: 100% 100%;
+      /* پس‌زمینه کارت به صورت کامل پر کند */
+      background-position: center;
+      /* قرارگیری پس‌زمینه در مرکز */
+      width: 400px;
+      /* عرض کارت */
+      height: 500px;
+      /* ارتفاع کارت */
+      border-radius: 10px;
+      /* حاشیه گرد برای کارت */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* سایه کارت */
+      overflow: hidden;
+      /* جلوگیری از نمایش محتوای اضافی */
+      text-align: center;
+      /* متن در وسط کارت قرار گیرد */
+      transition: transform 0.3s ease;
+      /* انیمیشن ترنسفورم زمانی برای افکت هاور */
+      margin-top: 80px;
+      /* فاصله از بالای صفحه */
+    }
+
+
+    /* افکت هاور بر روی کارت */
+    .card:hover {
+      transform: translateY(-10px);
+      /* جابجایی کارت به سمت بالا */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      /* افزایش سایه هنگام هاور */
+    }
+
+    /* استایل‌های سربرگ کارت */
+    .card-header {
+      font-family: Titr;
+      background-color: #46470783;
+      /* رنگ پس‌زمینه سربرگ */
+      color: #fff;
+      /* رنگ متن سفید */
+      padding: 20px 0;
+      font-size: 30px;
+      /* اندازه فونت */
+      font-weight: bold;
+    }
+
+    /* استایل‌های بدنه کارت */
+    .card-body {
+      padding: 20px;
+      color: #202020a8;
+      /* رنگ متن */
+      font-size: 20px;
+      /* اندازه فونت */
+      margin-bottom: 40px;
+      /* فاصله بیشتر از پایین برای قرار دادن دکمه */
+
+    }
+
+    /* استایل دکمه ویرایش */
+    .edit-button {
+      padding: 10px 21px;
+      background-color: #46470783;
+      /* رنگ پس‌زمینه دکمه */
+      color: white;
+      /* رنگ متن دکمه */
+      font-size: 16px;
+      border-radius: 7px;
+      /* حاشیه گرد */
+      text-decoration: none;
+      /* حذف خط زیر دکمه */
+      cursor: pointer;
+      position: absolute;
+      bottom: 20px;
+      /* تنظیم دکمه در پایین‌ترین قسمت کارت */
+      left: 50%;
+      transform: translateX(-50%);
+      /* مرکز کردن دکمه افقی */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* افزودن سایه */
+
+    }
+
+    /* افزودن سایه به دکمه ویرایش در حالت هاور */
+    .edit-button:hover {
+      background-color: #464707;
+      color: rgb(0, 0, 0);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      /* سایه بزرگتر در حالت هاور */
+    }
+
+    /* استایل بخش سفارشات قبلی */
+    .orders {
+      width: 80%;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      /* پس‌زمینه شفاف */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* سایه */
+    }
+
+    /* استایل جدول سفارشات */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table, th, td {
+        border: 1px solid #ddd; /* مرزهای جدول */
+      }
+
+      th, td {
+        padding: 12px;
+        text-align: right; /* راست‌چین بودن متن در جدول */
+      }
+
+      th {
+        background-color: #46470783; /* رنگ پس‌زمینه سربرگ جدول */
+        color: white; /* رنگ متن سربرگ */
+      }
+
+      /* ریسپانسیو برای صفحه‌های کوچک‌تر */
+      @media (max-width: 768px) {
+        table {
+          width: 100%; /* عرض جدول را 100% تنظیم می‌کنیم */
+          font-size: 12px; /* اندازه فونت را کاهش می‌دهیم */
+        }
+
+        th, td {
+          padding: 8px; /* فاصله درون سلول‌ها را کاهش می‌دهیم */
+        }
+
+        /* در صفحه‌های بسیار کوچک‌تر، مقیاس جدول کاهش پیدا می‌کند */
+        table {
+          transform: scale(0.9); /* جدول را به اندازه 90% اندازه اصلی کوچک می‌کند */
+          transform-origin: top center; /* موقعیت تغییر مقیاس در بالا و مرکز باشد */
+        }
+      }
+
+      @media (max-width: 480px) {
+        table {
+          transform: scale(0.8); /* در صفحه‌های بسیار کوچک‌تر، جدول را به اندازه 80% اندازه اصلی کوچک می‌کنیم */
+        }
+
+        th, td {
+          font-size: 10px; /* اندازه فونت را بیشتر کاهش می‌دهیم */
+          padding: 6px; /* فاصله سلول‌ها را کمتر می‌کنیم */
+        }
+      }
+
+
+    /* استایل وضعیت سفارشات */
+    .status {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* استایل قیمت */
+    .price {
+      font-weight: bold;
+      color: #464707;
+    }
+
+    /* استایل دکمه‌های صفحه قبلی و صفحه بعدی */
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #464707;
+      color: white;
+      font-size: 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* افزودن سایه */
+
+    }
+
+    .button:hover {
+      background-color: #46470783;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      /* سایه بزرگتر در حالت هاور */
+    }
+
+    /* مخفی کردن چک‌باکس */
+    #cancel-checkbox {
+      display: none;
+    }
+
+    /* استایل دکمه لغو سفارش */
+    .cancel-button {
+      padding: 7px 15px;
+      background-color: red;
+      /* رنگ پس‌زمینه قرمز */
+      color: white;
+      /* رنگ متن سفید */
+      font-size: 14px;
+      border-radius: 5px;
+      /* حاشیه گرد */
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* افزودن سایه */
+    }
+
+    /* افزودن سایه به دکمه لغو سفارش در حالت هاور */
+    .cancel-button:hover {
+      background-color: #f44336;
+      /* تغییر رنگ به قرمز پررنگ‌تر */
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      /* سایه بزرگتر در حالت هاور */
+    }
+
+
+    /* ریسپانسیو برای صفحه‌های کوچک */
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+        /* کاهش عرض کارت در نمایشگرهای کوچک */
+      }
+
+      /* استایل برای جداول ریسپانسیو */
+      .orders table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        overflow-x: auto;  /* اضافه کردن پیمایش افقی */
+        display: block;    /* نمایش به صورت بلاک برای فعال‌سازی پیمایش */
+      }
+
+    }
+
+    /* استایل هشدارها */
+    .alerts {
+      width: 80%;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      /* پس‌زمینه شفاف */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* سایه */
+      text-align: center;
+    }
+
+    .alerts h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: rgb(99, 13, 13);
+      /* رنگ عنوان هشدار */
+    }
+
+    .alert-item {
+      background-color: #f8d7da;
+      /* رنگ پس‌زمینه هشدار */
+      color: #721c24;
+      /* رنگ متن هشدار */
+      border: 1px solid #f5c6cb;
+      /* مرز دور هشدار */
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .alert-item p {
+      margin: 0;
+    }
+
+    .alert-item:hover {
+      background-color: #f1b0b7;
+      /* تغییر رنگ پس‌زمینه هشدار در حالت هاور */
+    }
+
+    /* ریسپانسیو برای صفحه‌های کوچک */
+    @media (max-width: 480px) {
+      .alerts {
+        width: 90%;
+        /* کاهش عرض بخش هشدارها */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="1.html">کافه</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="1.html">صفحه اصلی</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="2.html">سفارش</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">درباره ما</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">تماس با ما</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ورود/ثبت نام</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="3.html">پروفایل کاربر</a>
+          </li>
+        </ul> 
+      </div>
+    </div>
+  </nav>
+  <!-- کارت پروفایل کاربر -->
+  <div class="card">
+    <div class="card-header">
+      کارت همراهی
+    </div>
+    <div class="card-body">
+      <p style="text-align: right;">نام و نام خانوادگی : </p>
+      <p style="text-align: center; color: black;">امیرحسین محمد خانی</p>
+      <p style="text-align: right;">آدرس ایمیل : </p>
+      <p style="text-align: center; color: black;">amir.mohammadkhani@gmail.com</p>
+      <p style="text-align: right;"> تاریخ عضویت: <span style="color: black;">7 شهریور 1400</span></p>
+      <p style="text-align: right;"> شماره عضویت: <span style="color: black;">352</span></p>
+      <p style="text-align: right;">امتیاز : <span style="color: black;">2500</span></p>
+      <a href="4.html" class="edit-button">ویرایش اطلاعات</a>
+    </div>
+
+  </div>
+
+  <!-- لیست سفارشات قبلی -->
+  <div class="orders">
+    <h3 style="text-align: center; font-family: 'Titr';">تاریخچه سفارشات</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>شماره سفارش</th>
+          <th>تاریخ</th>
+          <th>وضعیت</th>
+          <th>قیمت</th>
+          <th>توضیحات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1403/01/15</td>
+          <td class="status">تکمیل شده</td>
+          <td class="price">50,000 تومان</td>
+          <td>اسپرسو ساده</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1403/02/20</td>
+          <td class="status">تکمیل شده</td>
+          <td class="price">75,000 تومان</td>
+          <td>کاپوچینو</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1403/03/10</td>
+          <td class="status">تکمیل شده</td>
+          <td class="price">85,000 تومان</td>
+          <td>لاته فندق</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1403/04/01</td>
+          <td class="status">تکمیل شده</td>
+          <td class="price">55,000 تومان</td>
+          <td>آمریکانو</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>1403/05/05</td>
+          <td class="status">تکمیل شده</td>
+          <td class="price">90,000 تومان</td>
+          <td>شیک نوتلا</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- دکمه‌های صفحه قبلی و صفحه بعدی -->
+    <div class="navigation-buttons">
+      <button class="button" onclick="history.back()">صفحه قبلی</button>
+      <button class="button" onclick="history.forward()">صفحه بعدی</button>
+    </div>
+  </div>
+
+  <!-- لیست سفارشات در انتظار دریافت -->
+    <div class="orders" style="overflow-x: auto;">
+      <h3 style="text-align: center; font-family: 'Titr'">سفارشات در انتظار دریافت</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>شماره سفارش</th>
+            <th>تاریخ</th>
+            <th>وضعیت</th>
+            <th>قیمت</th>
+            <th>توضیحات</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6</td>
+            <td>1403/12/15</td>
+            <td class="status" style="color: orange;">در انتظار دریافت</td>
+            <td class="price">30,000 تومان</td>
+            <td>چای نبات</td>
+            <td>در حال آماده‌سازی برای ارسال.</td>
+            <td><button class="cancel-button" onclick="cancelOrder(106)">لغو سفارش</button></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>1403/12/15</td>
+            <td class="status" style="color: orange;">در انتظار دریافت</td>
+            <td class="price">65,000 تومان</td>
+            <td>موکا</td>
+            <td>تحویل پیک</td>
+            <td><button class="cancel-button" onclick="cancelOrder(107)">لغو سفارش</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  <!-- اعلانات مهم -->
+  <div class="alerts">
+    <h3 style="font-family: 'Titr';">اعلانات مهم</h3>
+    <div class="alert-item">
+      <p class="alert-message">سایت به زودی بروزرسانی می شود</p>
+    </div>
+    <div class="alert-item">
+      <p class="alert-message">لطفاً اطلاعات حساب خود را تکمیل کنید</p>
+    </div>
+  </div>
+</body>
+
+</html>
