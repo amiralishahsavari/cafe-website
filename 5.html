@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <style>
+        body {
+            font-weight: bold;
+            font-family: "Vazir", sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow-y: auto;
+            direction: rtl;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-family: "Vazir", sans-serif;
+            font-size: 35px ;
+            margin-bottom: 20px;
+            color: #464707;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #464707;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-container button:hover {
+            background-color: #464707;
+        }
+
+        /* استایل دکمه ورود به سیستم */
+        .login-button {
+            background-color: #007BFF;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>ثبت نام</h2>
+        <!-- تغییر action به # -->
+        <form action="#" method="post">
+            <label for="name" style="text-align: right;">نام و نام خانوادگی:</label>
+            <input type="text" id="name" name="name" value="" placeholder="نام و نام خانوادگی">
+
+            <label for="email" style="text-align: right;">آدرس ایمیل:</label>
+            <input type="email" id="email" name="email" value="" placeholder="آدرس ایمیل">
+
+            <label for="phone" style="text-align: right;">شماره تماس:</label>
+            <input type="text" id="phone" name="phone" value="" placeholder="شماره تماس">
+
+            <label for="new password" style="text-align: right;">رمز عبور  :</label>
+            <input type="text" id="password" name="password" value="" placeholder=" رمز عبور ">
+
+            <label for="remember password" style="text-align: right;">تکرار رمز عبور :</label>
+            <input type="text" id="remember password" name="remember password" value="" placeholder="تکرار رمز عبور ">
+
+            <a href="4.html"><button type="button">ثبت</button></a>
+            
+            <a href="6.html"><button type="button" class="login-button">ورود به سیستم</button></a>
+        </form>
+    </div>
+
+</body>
+</html>
