@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت نام</title>
+    <title>ویرایش اطلاعات</title>
     <style>
         body {
-            font-weight: bold;
-            font-family: "Vazir", sans-serif;
+            background-image: url('https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            font-family: "Vazir", sans-serif;
+            font-weight: bold;
             background-repeat: no-repeat;
             display: flex;
             justify-content: center;
@@ -25,18 +32,29 @@
             direction: rtl;
         }
 
+        .navbar a:hover {
+            background-color: #3c1e04;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1020;
+        }
+
         .form-container {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 500px;
+            width: 400px;
             text-align: center;
         }
 
         .form-container h2 {
             font-family: "Vazir", sans-serif;
-            font-size: 35px ;
             margin-bottom: 20px;
             color: #464707;
         }
@@ -44,7 +62,7 @@
         .form-container label {
             display: block;
             margin: 10px 0;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .form-container input {
@@ -70,42 +88,116 @@
             background-color: #464707;
         }
 
-        /* استایل دکمه ورود به سیستم */
-        .login-button {
-            background-color: #007BFF;
+        #success-message {
+            display: none;
+            color: #464707;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        .login-button:hover {
-            background-color: #0056b3;
+        #show-message:checked ~ #success-message {
+            display: block;
+            animation: fadeOut 3s forwards;
         }
+
+        /* انیمیشن محو شدن */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        #show-message :checked {
+            animation: resetCheckbox 3.1s forwards;
+        }
+
+        @keyframes resetCheckbox {
+            0% { opacity:1;}
+            100% {opacity:1;}
+        }
+        #show-message {
+            display: none;
+        }
+        .jj{
+            display: inline-block;
+            background-color: #464707;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 13px;
+        }
+
     </style>
 </head>
+
 <body>
 
-    <div class="form-container">
-        <h2>ثبت نام</h2>
-        <!-- تغییر action به # -->
-        <form action="#" method="post">
-            <label for="name" style="text-align: right;">نام و نام خانوادگی:</label>
-            <input type="text" id="name" name="name" value="" placeholder="نام و نام خانوادگی">
+    <body class="mt-5">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="1.html">کافه</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                        <a class="nav-link active" href="1.html">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="2.html">سفارش</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">تماس با ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="4.html">ثبت نام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="5.html">ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="3.html">پروفایل کاربر</a>
+                    </li>   
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-            <label for="email" style="text-align: right;">آدرس ایمیل:</label>
-            <input type="email" id="email" name="email" value="" placeholder="آدرس ایمیل">
-
-            <label for="phone" style="text-align: right;">شماره تماس:</label>
-            <input type="text" id="phone" name="phone" value="" placeholder="شماره تماس">
-
-            <label for="new password" style="text-align: right;">رمز عبور  :</label>
-            <input type="text" id="password" name="password" value="" placeholder=" رمز عبور ">
-
-            <label for="remember password" style="text-align: right;">تکرار رمز عبور :</label>
-            <input type="text" id="remember password" name="remember password" value="" placeholder="تکرار رمز عبور ">
-
-            <a href="4.html"><button type="button">ثبت</button></a>
+        <div class="form-container">
+            <h2>ورود کاربر</h2>
+            <!-- تغییر action به # -->
+            <form action="#" method="post">
+                <label for="email" style="text-align: right;">نام کاربری (شماره تماس):</label>
+                <input type="email" id="email" name="email" value="" placeholder="نام کاربری (شماره تماس)" required>
             
-            <a href="6.html"><button type="button" class="login-button">ورود به سیستم</button></a>
-        </form>
-    </div>
+                <label for="name" style="text-align: right;">رمز عبور:</label>
+                <input type="text" id="name" name="name" value="" placeholder="رمز عبور" required>
+            
+            
+                <input type="checkbox" id="show-message">
+                <label for="show-message" class="jj">تائید</label>
+            
+                <p id="success-message">ورود موفقیت آمیز بود</p>
+            </form>
+            
+        </div>
 
-</body>
+    </body>
+
 </html>

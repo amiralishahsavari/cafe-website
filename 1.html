@@ -5,13 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صفحه اصلی</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -166,7 +162,7 @@
         .footer .social-links img:hover {
             transform: scale(1.1);
         }
-
+        
         .footer .col-md-4 {
             text-align: center;
             /* وسط‌چین کردن متن داخل ستون */
@@ -241,7 +237,7 @@
             transform: translate(-50%, 50%);
             font-size: 24px;
             font-weight: bold;
-            color: whitesmoke;
+            color:  whitesmoke;
             font-family: "Vazir";
         }
 
@@ -255,7 +251,6 @@
             color: whitesmoke;
             font-family: "Vazir";
         }
-
         .container-comment {
             background: #0aedde18;
             color: #333;
@@ -269,7 +264,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
         .comment-box {
             width: 100%;
             padding: 10px;
@@ -280,7 +274,6 @@
             display: flex;
             align-items: center;
         }
-
         .profile-pic {
             width: 30px;
             height: 30px;
@@ -288,12 +281,10 @@
             margin-left: 10px;
             margin-bottom: 50px;
         }
-
         .comment-content {
             flex: 1;
             text-align: right;
         }
-
         .comment-form textarea {
             width: 100%;
             height: 100px;
@@ -301,19 +292,27 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
+        .comment-form input[type="submit"] {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+                
         #success-message {
             display: none;
-            color: green;
-            font-weight: bold;
-            margin-top: 10px;
+            color: #303a45;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            margin-top: 20px;
         }
 
-        /* نمایش پیام تأیید فقط در صورتی که دکمه ارسال کلیک شده باشد و textarea پر باشد */
-        input[type="checkbox"]:checked+label+#success-message {
+        #show-message:checked ~ #success-message {
             display: block;
             animation: fadeOut 3s forwards;
-
         }
 
         /* انیمیشن محو شدن */
@@ -332,16 +331,27 @@
             }
         }
 
-        /* غیرفعال کردن دکمه ارسال اگر textarea خالی باشد */
-        textarea:invalid+br+input[type="checkbox"]+label {
-            pointer-events: none;
-            /* جلوگیری از کلیک */
-            opacity: 0.5;
-            /* کم‌رنگ کردن دکمه */
+        #show-message :checked {
+            animation: resetCheckbox 3.1s forwards;
         }
 
-        .submit-button {
-            font-size: 20px;
+        @keyframes resetCheckbox {
+            0% { opacity:1;}
+            100% {opacity:1;}
+        }
+        #show-message {
+            display: none;
+        }
+        .jj{
+            display: inline-block;
+            background-color: #007bff;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            font-size: px;
         }
     </style>
 </head>
@@ -357,7 +367,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">صفحه اصلی</a>
+                        <a class="nav-link active" href="1.html">صفحه اصلی</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="2.html">سفارش</a>
@@ -369,12 +379,14 @@
                         <a class="nav-link" href="#">تماس با ما</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="5.html">ورود/ثبت نام</a>
+                        <a class="nav-link" href="4.html">ثبت نام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="5.html">ورود</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="3.html">پروفایل کاربر</a>
-                    </li>
-                </ul>
+                    </li>                </ul>
             </div>
         </div>
     </nav>
@@ -446,29 +458,29 @@
             <div class="slide" id="s1">
                 <img src="https://i.ibb.co/SDPHNS2g/tehran-luxury-cafes-sincere-3.jpg" alt="اسلاید ۱">
                 <div>
-                    <h2 class="text-overlay">نوشیدنی</h2>
-                    <p class="text-overlayy">نوشیدنی خنک
+                    <h2 class="text-overlay" >نوشیدنی</h2>
+                    <p class="text-overlayy" >نوشیدنی خنک در فصل گرما</p>
                 </div>
             </div>
             <div class="slide" id="s2">
                 <img src="https://i.ibb.co/JwdTNRyQ/tehran-luxury-cafes-rolexlounge-4.jpg" alt="اسلاید ۲">
                 <div>
-                    <h2 class="text-overlay">بخش رستوران </h2>
-                    <p class="text-overlayy">محیط زیبای رستوران</p>
+                    <h2 class="text-overlay" >بخش رستوران </h2>
+                    <p class="text-overlayy" >محیط زیبای رستوران</p>
                 </div>
             </div>
             <div class="slide" id="s3">
                 <img src="https://i.ibb.co/wZxLJ2FY/tehran-luxury-cafes-rolexlounge-3-1024x683.jpg" alt="اسلاید ۳">
                 <div>
-                    <h2 class="text-overlay">بخش رستوران</h2>
-                    <p class="text-overlayy">محیط زیبای رستوران</p>
+                    <h2 class="text-overlay" >بخش رستوران</h2>
+                    <p class="text-overlayy" >محیط زیبای رستوران</p>
                 </div>
             </div>
             <div class="slide" id="s4">
                 <img src="https://i.ibb.co/8gB6RBnB/tehran-luxury-cafes-garnet-1.jpg" alt="اسلاید ۴">
                 <div>
                     <h2 class="text-overlay">لذت</h2>
-                    <p class="text-overlayy">گلاسه طبیعی </p>
+                    <p class="text-overlayy">گلاسه های طبیعی خنک</p>
                 </div>
             </div>
             <div class="slide" id="s5">
@@ -481,7 +493,7 @@
             <div class="slide" id="s6">
                 <img src="https://i.ibb.co/PV2ktFP/tehran-luxury-cafes-hoorsunbistro-4.jpg" alt="اسلاید 6">
                 <div>
-                    <h2 class="text-overlay"> نور و گیاهان</h2>
+                    <h2 class="text-overlay">در کنار نور و گیاهان</h2>
                     <p class="text-overlayy">محیط زیبای کافه</p>
                 </div>
             </div>
@@ -500,40 +512,30 @@
 
     <div class="container-comment">
         <h2>نظرات کاربران</h2>
-
+        
         <div class="comment-box">
-            <img src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="پروفایل کاربر ۱" class="profile-pic">
+            <img src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=600" alt="پروفایل کاربر ۱" class="profile-pic">
             <div class="comment-content">
                 <p><strong>amirali</strong></p>
                 <p>فضای مناسب و آرامی داشت</p>
             </div>
         </div>
-
+        
         <div class="comment-box">
-            <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="پروفایل کاربر ۲" class="profile-pic">
+            <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=600" alt="پروفایل کاربر ۲" class="profile-pic">
             <div class="comment-content">
                 <p><strong>حسین</strong></p>
                 <p>ارسال قهوه دیر انجام شد، راضی نبودم</p>
             </div>
         </div>
-
+        
         <form class="comment-form">
             <h3>ثبت نظر</h3>
-            <textarea id="commentBox" placeholder="نظر خود را بنویسید..." required></textarea>
+            <textarea placeholder="نظر خود را بنویسید..."></textarea>
             <br>
-            <!--<input type="submit" value="ارسال نظر">-->
-
-
-            <!-- چک‌باکس مخفی برای نمایش پیام تایید -->
-            <input type="checkbox" id="show-message" style="display: none;">
-            <label for="show-message" id="submit-button" class="submit-button">ارسال نظر</label>
-
-            <!-- پیام تایید ثبت نظر -->
+            <input type="checkbox" id="show-message">
+            <label for="show-message" class="jj">ثبت نظر</label>
             <p id="success-message">نظر شما ثبت شد</p>
-
-
 
         </form>
     </div>
@@ -566,6 +568,7 @@
         </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
