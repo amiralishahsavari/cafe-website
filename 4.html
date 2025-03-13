@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>ورود و ثبت نام</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -99,6 +103,7 @@
             display: block;
             animation: fadeOut 3s forwards;
         }
+        
 
         /* انیمیشن محو شدن */
         @keyframes fadeOut {
@@ -191,10 +196,9 @@
             
                 <label for="address" style="text-align: right;">آدرس:</label>
                 <input type="text" id="address" name="address" value="" placeholder="آدرس" required>
-            
-                <input type="checkbox" id="show-message">
+
                 <label for="show-message" class="jj">ثبت تغییرات</label>
-            
+                <input type="checkbox" id="show-message">            
                 <p id="success-message">اطلاعات کاربر با موفقیت ثبت شد</p>
             </form>
             
