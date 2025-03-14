@@ -162,7 +162,7 @@
         .footer .social-links img:hover {
             transform: scale(1.1);
         }
-        
+
         .footer .col-md-4 {
             text-align: center;
             /* وسط‌چین کردن متن داخل ستون */
@@ -237,7 +237,7 @@
             transform: translate(-50%, 50%);
             font-size: 24px;
             font-weight: bold;
-            color:  whitesmoke;
+            color: whitesmoke;
             font-family: "Vazir";
         }
 
@@ -251,7 +251,6 @@
             color: whitesmoke;
             font-family: "Vazir";
         }
-
     </style>
 </head>
 
@@ -259,7 +258,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="1.html">کافه</a>
+            <a class="navbar-brand" href="#about">کافه</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -272,10 +271,10 @@
                         <a class="nav-link" href="2.html">سفارش</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">درباره ما</a>
+                        <a class="nav-link" href="#about">درباره ما</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">تماس با ما</a>
+                        <a class="nav-link" href="#contact">تماس با ما</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="4.html">ثبت نام</a>
@@ -285,7 +284,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="3.html">پروفایل کاربر</a>
-                    </li>                </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -305,7 +305,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold;">قهوه اسپرسو</h5>
                         <p class="card-text" style="font-weight: bold;">قهوه خوش‌طعم و معطر با بهترین دانه‌ها</p>
-                        <a href="7.html" class="btn btn-primary">جزییات محصول</a>
+                        <a href="7.html?#esper" class="btn btn-primary">جزییات محصول</a>
                     </div>
                 </div>
             </div>
@@ -318,7 +318,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold;">کیک شکلاتی</h5>
                         <p class="card-text" style="font-weight: bold;">کیک تازه و خوشمزه با لایه‌های شکلات</p>
-                        <a href="7.html" class="btn btn-primary">جزییات محصول</a>
+                        <a href="7.html?#cake" class="btn btn-primary">جزییات محصول</a>
                     </div>
                 </div>
             </div>
@@ -331,10 +331,11 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold;">چای سبز</h5>
                         <p class="card-text" style="font-weight: bold;">چای سبز ارگانیک با عطر فوق‌العاده.</p>
-                        <a href="2.html" class="btn btn-primary">جزییات محصول</a>
+                        <a href="7.html?#greentea" class="btn btn-primary">جزییات محصول</a>
                     </div>
                 </div>
             </div>
+            
         </div>
 
         <div class="text-center mt-4">
@@ -353,26 +354,26 @@
         <input type="radio" name="carousel" id="slide6" checked>
 
         <!-- بخش نمایش اسلایدها -->
-        <div class="container">
+        <div class="container" id="about">
             <div class="slide" id="s1">
                 <img src="https://i.ibb.co/SDPHNS2g/tehran-luxury-cafes-sincere-3.jpg" alt="اسلاید ۱">
                 <div>
-                    <h2 class="text-overlay" >نوشیدنی</h2>
-                    <p class="text-overlayy" >نوشیدنی خنک در فصل گرما</p>
+                    <h2 class="text-overlay">نوشیدنی</h2>
+                    <p class="text-overlayy">نوشیدنی خنک در فصل گرما</p>
                 </div>
             </div>
             <div class="slide" id="s2">
                 <img src="https://i.ibb.co/JwdTNRyQ/tehran-luxury-cafes-rolexlounge-4.jpg" alt="اسلاید ۲">
                 <div>
-                    <h2 class="text-overlay" >بخش رستوران </h2>
-                    <p class="text-overlayy" >محیط زیبای رستوران</p>
+                    <h2 class="text-overlay">بخش رستوران </h2>
+                    <p class="text-overlayy">محیط زیبای رستوران</p>
                 </div>
             </div>
             <div class="slide" id="s3">
                 <img src="https://i.ibb.co/wZxLJ2FY/tehran-luxury-cafes-rolexlounge-3-1024x683.jpg" alt="اسلاید ۳">
                 <div>
-                    <h2 class="text-overlay" >بخش رستوران</h2>
-                    <p class="text-overlayy" >محیط زیبای رستوران</p>
+                    <h2 class="text-overlay">بخش رستوران</h2>
+                    <p class="text-overlayy">محیط زیبای رستوران</p>
                 </div>
             </div>
             <div class="slide" id="s4">
@@ -410,7 +411,7 @@
     </div>
 
 
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="row">
             <div class="col-md-4">
                 <h3>تماس با ما</h3>
