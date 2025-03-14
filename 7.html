@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>جزئیات محصول </title>
+    <style>
+        body {
+            font-weight: bold;
+            font-family: 'Vazir', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .navbar a:hover {
+            background-color: #3c1e04;
+            color: white;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1020;
+        }
+
+        .container1 {
+            box-shadow: 0 5px 15px (0, 0, 0.2);
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background: linear-gradient(to right, #13bbc4, #f9f9f9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0.2);
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .product-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 1.5em;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        .btn-buy {
+            background-color: #e91e63;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-buy:hover {
+            background-color: #d81b60;
+        }
+
+        @media (min-width: 768px) {
+            .product-details {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .product-image {
+                width: 50%;
+                margin-right: 20px;
+            }
+
+            .product-info {
+                width: 50%;
+                text-align: right;
+            }
+        }
+
+        .container-comment {
+            background: #0aedde18;
+            color: #333;
+            padding: 20px;
+            margin-top: 50px;
+            margin: 50px auto;
+            /* فاصله از پایین */
+            max-width: 60%;
+            /* حداکثر عرض */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .comment-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            margin-bottom: 50px;
+        }
+        .comment-content {
+            flex: 1;
+            text-align: right;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment-form input[type="submit"] {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+                
+        #success-message {
+            display: none;
+            color: #303a45;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            margin-top: 20px;
+        }
+
+        #show-message:checked ~ #success-message {
+            display: block;
+            animation: fadeOut 3s forwards;
+        }
+
+        /* انیمیشن محو شدن */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        #show-message :checked {
+            animation: resetCheckbox 3.1s forwards;
+        }
+
+        @keyframes resetCheckbox {
+            0% { opacity:1;}
+            100% {opacity:1;}
+        }
+        #show-message {
+            display: none;
+        }
+
+        .jj{
+            display: inline-block;
+            background-color: #007bff;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 20px;
+            font-family:'Vazir', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="1.html">کافه</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="1.html">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="2.html">سفارش</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">تماس با ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="4.html">ثبت نام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="5.html">ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="3.html">پروفایل کاربر</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container1" >
+        <div class="product-details">
+            <img src="https://i.ibb.co/Wpfs2Rkx/white-cup-with-fragrant-strong-espresso-coffee.webp" alt="قهوه اسپرسو"
+                class="product-image">
+            <div class="product-info">
+                <h1 class="product-title">قهوه اسپرسو</h1>
+                <p class="product-description">قهوه اسپرسو با طعم بی‌نظیر و عطری دلنشین، تهیه شده از بهترین دانه‌های
+                    قهوه. مناسب برای شروع یک روز پرانرژی.</p>
+                <p class="product-price">50000 تومان</p>
+                <a href="2.html" class="btn-buy"> سفارش</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1" >
+        <div class="product-details">
+            <img src="https://i.ibb.co/9mp3Nj8H/slice-chocolate-cake-538646-4201.jpg" alt="قهوه اسپرسو"
+                class="product-image">
+            <div class="product-info">
+                <h1 class="product-title"> کیک شکلاتی</h1>
+                <p class="product-description">تهیه‌شده از بهترین دانه‌های کاکائو، کره تازه و خامه غلیظ، این کیک انتخابی
+                    بی‌نظیر برای مراسم‌های خاص، تولدها و لحظات شاد شماست. </p>
+                <p class="product-price">60000 تومان</p>
+                <a href="2.html" class="btn-buy"> سفارش</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1" >
+        <div class="product-details">
+            <img src="https://i.ibb.co/DfbFJXw9/istockphoto-628986454-612x612.jpg" alt="قهوه اسپرسو"
+                class="product-image">
+            <div class="product-info">
+                <h1 class="product-title">چای سبز</h1>
+                <p class="product-description"> سلامتی در هر جرعه!
+
+                    به دنبال یک نوشیدنی سالم، انرژی‌بخش و سرشار از آنتی‌اکسیدان هستید؟ چای سبز نه تنها طعم لطیف و دلپذیری دارد، بلکه به تقویت متابولیسم، افزایش تمرکز و کاهش استرس کمک می‌کند.</p>
+                <p class="product-price">60000 تومان</p>
+                <a href="2.html" class="btn-buy"> سفارش</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1" >
+        <div class="product-details">
+            <img src="https://i.ibb.co/W44md106/coffee-glace-9.jpg" alt="قهوه اسپرسو"
+                class="product-image">
+            <div class="product-info">
+                <h1 class="product-title">کافه گلاسه</h1>
+                <p class="product-description">کافه گلاسه؛ ترکیبی از طراوت و انرژی!
+
+                    یک لیوان پر از لذت! تصور کنید طعم غلیظ و عطر دل‌انگیز قهوه‌ی تازه‌دم را که با بستنی خامه‌ای ترکیب شده و با شکلات و خامه تزئین شده است.</p>
+                <p class="product-price">100000 تومان</p>
+                <a href="2.html" class="btn-buy"> سفارش</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1" >
+        <div class="product-details">
+            <img src="https://i.ibb.co/TMF98P48/50050-five-minute-ice-cream-DDMFS-4x3-076-fbf49ca6248e4dceb3f43a4f02823dd9.jpg" alt="قهوه اسپرسو"
+                class="product-image">
+            <div class="product-info">
+                <h1 class="product-title">بستنی توت‌فرنگی: طعمی از بهشت در هر قاشق!</h1>
+                <p class="product-description">با هر لقمه از بستنی توت‌فرنگی ما، شیرینی و طراوت توت‌فرنگی‌های تازه را حس کنید. ترکیبی دلپذیر از خامه‌ی لطیف و عطر ناب میوه‌های طبیعی که حس شادابی و لذت را در روزتان جاری می‌کند.</p>
+                <p class="product-price">75000 تومان</p>
+                <a href="2.html" class="btn-buy"> سفارش</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-comment">
+        <h2>نظرات کاربران</h2>
+        
+        <div class="comment-box">
+            <img src="https://i.ibb.co/rfXdMtbB/pexels-photo-1040881.jpg" alt="پروفایل کاربر ۱" class="profile-pic">
+            <div class="comment-content">
+                <p><strong>amirali</strong></p>
+                <p>کیک شکلاتی که به دست من رسید تازه نبود!</p>
+            </div>
+        </div>
+        
+        <div class="comment-box">
+            <img src="https://i.ibb.co/DH1DgzWx/pexels-photo-1040880.jpg" alt="پروفایل کاربر ۲" class="profile-pic">
+            <div class="comment-content">
+                <p><strong>hossein</strong></p>
+                <p>ارسال قهوه اسپرسو دیر انجام شد .راضی نبودم.</p>
+            </div>
+        </div>
+
+        <div class="comment-box">
+            <img src="https://i.ibb.co/cS18kz7F/IMG-20230809-233145-028.jpg" alt="پروفایل کاربر ۲" class="profile-pic">
+            <div class="comment-content">
+                <p><strong>maryam</strong></p>
+                <p>قهوه لاته فوقالعاده بود!</p>
+            </div>
+        </div>
+        
+        <form class="comment-form">
+            <h3>ثبت نظر</h3>
+            <textarea placeholder="نظر خود را بنویسید..."></textarea>
+            <br>
+            <input type="checkbox" id="show-message">
+            <label for="show-message" class="jj">ثبت نظر</label>
+            <p id="success-message">نظر شما ثبت شد</p>
+
+        </form>
+    </div>
+</body>
+
+</html>
